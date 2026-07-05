@@ -43,6 +43,19 @@ const services = {
     ],
     stack: ["REST APIs", "Node.js", "MySQL", "Laravel"],
   },
+  "mobile-development": {
+    title: "Mobile App Development",
+    tagline: "Native and cross-platform mobile solutions",
+    description:
+      "I build high-performance mobile applications using React Native for iOS and Android. From e-commerce apps to custom business solutions, I deliver responsive and efficient mobile experiences.",
+    highlights: [
+      "React Native apps for iOS & Android",
+      "Cross-platform development with shared codebase",
+      "Native modules and performance optimization",
+      "Seamless API integration with backend systems",
+    ],
+    stack: ["React Native", "JavaScript", "TypeScript", "REST APIs", "Firebase"],
+  },
 } as const;
 
 type ServiceSlug = keyof typeof services;
@@ -66,13 +79,13 @@ export default function ServiceDetailPage({
     <main className="min-h-screen bg-slate-950 px-6 py-16 lg:px-12">
       <div className="mx-auto max-w-4xl">
         <Link
-          href="/service"
-          className="inline-flex items-center gap-2 text-sm font-semibold text-cyan-300 hover:text-cyan-200 transition"
+          href="/"
+          className="inline-flex items-center gap-2 text-sm font-semibold text-cyan-300 transition hover:text-cyan-200"
         >
-          ← Back to services
+          ← Back to home
         </Link>
 
-        <div className="mt-8 rounded-[2rem] border border-cyan-400/20 bg-slate-900/60 p-8 lg:p-12 shadow-2xl">
+        <div className="mt-8 rounded-4xl border border-cyan-400/20 bg-slate-900/60 p-8 shadow-2xl lg:p-12">
           <p className="font-mono text-sm text-cyan-400">{service.tagline}</p>
           <h1 className="mt-3 text-4xl md:text-5xl font-extrabold tracking-tight text-white">
             {service.title}
