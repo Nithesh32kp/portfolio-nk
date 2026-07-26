@@ -80,99 +80,137 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="rounded-4xl border border-cyan-400/20 bg-slate-900/70 p-8 shadow-2xl">
-      <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
-        <div>
-          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-cyan-300">Contact</p>
-          <h2 className="mt-3 text-3xl font-anton text-white">Let&apos;s build something great together</h2>
-          <p className="mt-4 text-sm leading-7 text-slate-400">
-            I&apos;m open to freelance projects, full-time roles, and product collaborations where modern web experiences matter.
-          </p>
-          <a
-            href={`mailto:${EMAIL}`}
-            onClick={handleEmailClick}
-            className="mt-6 inline-flex text-sm font-semibold text-cyan-300 underline decoration-cyan-400/50 underline-offset-4"
-          >
-            {EMAIL}
-          </a>
+    <section id="contact" className="relative overflow-hidden rounded-[2.5rem] border border-cyan-400/15 bg-slate-950/90 p-8 shadow-2xl shadow-cyan-500/10">
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-36 bg-gradient-to-b from-cyan-500/10 to-transparent" />
+      <div className="relative grid gap-10 lg:grid-cols-[0.95fr_1.05fr]">
+        <div className="space-y-6">
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-[0.32em] text-cyan-300">Contact</p>
+            <h2 className="mt-3 text-4xl font-anton text-white">Let&apos;s build something great together</h2>
+          </div>
 
-          {showEmailOptions && (
-            <div className="mt-3 flex flex-wrap items-center gap-3 text-xs text-slate-400">
-              <a
-                href={`https://mail.google.com/mail/?view=cm&fs=1&to=${EMAIL}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="underline decoration-cyan-400/40 underline-offset-4 hover:text-cyan-300"
-              >
-                Open in Gmail
-              </a>
-              <a
-                href={`https://outlook.live.com/mail/0/deeplink/compose?to=${EMAIL}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="underline decoration-cyan-400/40 underline-offset-4 hover:text-cyan-300"
-              >
-                Open in Outlook
-              </a>
-              <button
-                type="button"
-                onClick={handleCopy}
-                className="underline decoration-cyan-400/40 underline-offset-4 hover:text-cyan-300"
-              >
-                {copied ? "Copied!" : "Copy address"}
-              </button>
+          <p className="max-w-xl text-sm leading-7 text-slate-400">
+            I&apos;m open to freelance projects, full-time roles, and product collaborations where modern web experiences matter. Whether it&apos;s a web app, API integration, or mobile product, I&apos;m ready to help you ship faster.
+          </p>
+
+          <div className="rounded-[2rem] border border-slate-800/80 bg-slate-900/95 p-6 shadow-xl shadow-cyan-500/5">
+            <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+              <div>
+                <p className="text-xs uppercase tracking-[0.3em] text-cyan-300">Fastest way to connect</p>
+                <p className="mt-2 text-sm text-slate-300">Send your idea or launch plan and I&apos;ll reply quickly.</p>
+              </div>
+              <span className="inline-flex rounded-full bg-cyan-500/10 px-3 py-1 text-xs font-semibold text-cyan-300 ring-1 ring-cyan-300/15">
+                24h response
+              </span>
             </div>
-          )}
+
+            <a
+              href={`mailto:${EMAIL}`}
+              onClick={handleEmailClick}
+              className="mt-6 inline-flex w-full items-center justify-between rounded-full border border-cyan-400/20 bg-slate-950/95 px-5 py-3 text-sm font-semibold text-cyan-300 transition hover:border-cyan-300 hover:bg-slate-900 sm:w-auto"
+            >
+              <span>{EMAIL}</span>
+              <span className="text-cyan-200">↗</span>
+            </a>
+
+            <p className="mt-4 text-sm text-slate-400">
+              Prefer a different mail client? Open Gmail, Outlook, or copy the address below.
+            </p>
+
+            {showEmailOptions && (
+              <div className="mt-4 flex flex-wrap gap-3 text-xs text-slate-300">
+                <a
+                  href={`https://mail.google.com/mail/?view=cm&fs=1&to=${EMAIL}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="rounded-full border border-slate-700/80 bg-slate-950/90 px-4 py-2 underline decoration-cyan-400/40 underline-offset-4 transition hover:text-cyan-300"
+                >
+                  Open in Gmail
+                </a>
+                <a
+                  href={`https://outlook.live.com/mail/0/deeplink/compose?to=${EMAIL}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="rounded-full border border-slate-700/80 bg-slate-950/90 px-4 py-2 underline decoration-cyan-400/40 underline-offset-4 transition hover:text-cyan-300"
+                >
+                  Open in Outlook
+                </a>
+                <button
+                  type="button"
+                  onClick={handleCopy}
+                  className="rounded-full border border-slate-700/80 bg-slate-950/90 px-4 py-2 underline decoration-cyan-400/40 underline-offset-4 transition hover:text-cyan-300"
+                >
+                  {copied ? "Copied!" : "Copy address"}
+                </button>
+              </div>
+            )}
+          </div>
         </div>
 
-        <form onSubmit={handleSubmit} className="grid grid-cols-1 gap-4 md:grid-cols-2">
-          <input
-            name="name"
-            placeholder="Your name"
-            required
-            className="rounded border border-slate-800 bg-slate-950/80 p-3 text-sm text-slate-200 outline-none ring-0"
-          />
-          <input
-            name="email"
-            type="email"
-            placeholder="Email"
-            required
-            className="rounded border border-slate-800 bg-slate-950/80 p-3 text-sm text-slate-200 outline-none ring-0"
-          />
-          <input
-            name="phone"
-            placeholder="Phone number"
-            required
-            className="rounded border border-slate-800 bg-slate-950/80 p-3 text-sm text-slate-200 outline-none ring-0 md:col-span-2"
-          />
-          <textarea
-            name="message"
-            placeholder="Tell me about your project"
-            className="h-32 rounded border border-slate-800 bg-slate-950/80 p-3 text-sm text-slate-200 outline-none ring-0 md:col-span-2"
-          />
+        <form
+          onSubmit={handleSubmit}
+          className="rounded-[2rem] border border-slate-800/80 bg-slate-950/95 p-6 shadow-xl shadow-slate-950/20"
+        >
+          <div className="grid gap-4 md:grid-cols-2">
+            <input
+              name="name"
+              placeholder="Your name"
+              required
+              className="h-14 rounded-3xl border border-slate-800 bg-slate-900/95 px-4 text-sm text-slate-100 outline-none transition focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/15"
+            />
+            <input
+              name="email"
+              type="email"
+              placeholder="Email"
+              required
+              className="h-14 rounded-3xl border border-slate-800 bg-slate-900/95 px-4 text-sm text-slate-100 outline-none transition focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/15"
+            />
+          </div>
 
-          <div className="flex items-center gap-4 md:col-span-2">
+          <div className="mt-4">
+            <input
+              name="phone"
+              placeholder="Phone number"
+              required
+              className="w-full h-14 rounded-3xl border border-slate-800 bg-slate-900/95 px-4 text-sm text-slate-100 outline-none transition focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/15"
+            />
+          </div>
+
+          <div className="mt-4">
+            <textarea
+              name="message"
+              placeholder="Tell me about your project"
+              required
+              className="h-40 w-full rounded-[1.5rem] border border-slate-800 bg-slate-900/95 px-4 py-4 text-sm text-slate-100 outline-none transition focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/15"
+            />
+          </div>
+
+          <div className="mt-6 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
             <button
               type="submit"
               disabled={status === "loading"}
-              className="rounded-full bg-cyan-400 px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-cyan-300 disabled:opacity-50"
+              className="inline-flex h-14 items-center justify-center rounded-full bg-cyan-400 px-6 text-sm font-semibold text-slate-950 transition hover:bg-cyan-300 disabled:cursor-not-allowed disabled:opacity-50"
             >
               {status === "loading" ? "Sending..." : "Send message"}
             </button>
             <a
               href={`mailto:${EMAIL}`}
               onClick={handleEmailClick}
-              className="text-sm text-slate-400 underline"
+              className="text-sm text-slate-400 underline decoration-cyan-400/40 underline-offset-4 transition hover:text-cyan-200"
             >
-              Email directly
+              Email directly instead
             </a>
           </div>
 
+          <p className="mt-4 max-w-xl text-sm leading-6 text-slate-500">
+            I usually respond within 24-48 hours. If you want to share a specification, roadmap, or launch timeline, drop it in the message.
+          </p>
+
           {status === "success" && (
-            <p className="text-sm text-emerald-400 md:col-span-2">Message sent — I&apos;ll get back to you soon.</p>
+            <p className="mt-4 text-sm text-emerald-400">Message sent — I&apos;ll get back to you soon.</p>
           )}
           {status === "error" && (
-            <p className="text-sm text-red-400 md:col-span-2">{errorMessage}</p>
+            <p className="mt-4 text-sm text-red-400">{errorMessage}</p>
           )}
         </form>
       </div>
