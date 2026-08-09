@@ -5,11 +5,42 @@ import React, { useState, useRef } from "react";
 export default function Contact() {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
   const [showEmailOptions, setShowEmailOptions] = useState(false);
   const [copied, setCopied] = useState(false);
   const blurredRef = useRef(false);
 
-  const EMAIL = "nitheshk573@gmail.com";
+  const EMAIL = process.env.NEXT_PUBLIC_CONTACT_EMAIL || "nitheshk573@gmail.com";
+  const CONTACT_API_URL = process.env.NEXT_PUBLIC_CONTACT_API_URL || "https://adminpage-8xdz.onrender.com/api/hiring-users";
+
+  const getApiMessage = (data: unknown) => {
+    if (typeof data === "object" && data !== null) {
+      const payload = data as Record<string, unknown>;
+
+      if (typeof payload.message === "string" && payload.message.trim()) {
+        return payload.message;
+      }
+
+      if (typeof payload.error === "string" && payload.error.trim()) {
+        return payload.error;
+      }
+
+      if (payload.data && typeof payload.data === "object") {
+        const dataEntries = Object.values(payload.data as Record<string, unknown>);
+        const firstValue = dataEntries[0];
+
+        if (Array.isArray(firstValue) && firstValue[0]) {
+          return String(firstValue[0]);
+        }
+
+        if (typeof firstValue === "string" && firstValue.trim()) {
+          return firstValue;
+        }
+      }
+    }
+
+    return "Something went wrong. Please try again.";
+  };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -25,9 +56,10 @@ export default function Contact() {
 
     setStatus("loading");
     setErrorMessage("");
+    setSuccessMessage("");
 
     try {
-      const res = await fetch("https://adminpage-8xdz.onrender.com/api/hiring-users", {
+      const res = await fetch(CONTACT_API_URL, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -39,18 +71,18 @@ export default function Contact() {
       const data = await res.json();
 
       if (!res.ok) {
-        const firstError =
-          data?.data && Object.values(data.data)[0]
-            ? (Object.values(data.data)[0] as string[])[0]
-            : data?.message || "Something went wrong.";
-        throw new Error(firstError);
+        const message = getApiMessage(data);
+        throw new Error(message);
       }
 
       setStatus("success");
+      setSuccessMessage(typeof data?.message === "string" && data.message.trim()
+        ? data.message
+        : "Thanks! Your message has been sent successfully.");
       form.reset();
     } catch (err) {
       setStatus("error");
-      setErrorMessage(err instanceof Error ? err.message : "Something went wrong.");
+      setErrorMessage(err instanceof Error ? err.message : "Something went wrong. Please try again.");
     }
   };
 
@@ -207,10 +239,10 @@ export default function Contact() {
           </p>
 
           {status === "success" && (
-            <p className="mt-4 text-sm text-emerald-400">Message sent — I&apos;ll get back to you soon.</p>
+            <p aria-live="polite" className="mt-4 text-sm text-emerald-400">{successMessage}</p>
           )}
           {status === "error" && (
-            <p className="mt-4 text-sm text-red-400">{errorMessage}</p>
+            <p aria-live="polite" className="mt-4 text-sm text-red-400">{errorMessage}</p>
           )}
         </form>
       </div>

@@ -2,28 +2,40 @@ import React from "react";
 
 const services = [
   {
-    slug: "web-development",
-    title: "Modern Web Applications",
-    desc: "Responsive front ends and scalable application architecture for products that need to grow.",
-    stack: ["Next.js", "React.js", "TypeScript"],
+    slug: "ecommerce-website",
+    title: "E-Commerce Website Development",
+    desc: "End-to-end e-commerce storefronts with custom catalogues, product management, and inventory tracking — built for real businesses to sell online.",
+    stack: ["Next.js", "Laravel", "MySQL", "DaisyUI"],
   },
   {
-    slug: "mobile-development",
-    title: "Mobile App Development",
-    desc: "Cross-platform iOS and Android apps built with React Native for fast, efficient deployment.",
-    stack: ["React Native", "JavaScript", "TypeScript"],
+    slug: "ecommerce-api",
+    title: "REST API Development for E-Commerce",
+    desc: "Scalable backend APIs powering e-commerce platforms — handling products, orders, payments, and inventory with secure, well-structured endpoints.",
+    stack: ["Laravel", "REST APIs", "MySQL", "PostgreSQL"],
   },
   {
-    slug: "admin-panels",
-    title: "Admin Panels & Dashboards",
-    desc: "Operational dashboards with clean data flows, reporting, and user-friendly management tools.",
-    stack: ["Laravel", "Livewire", "Tailwind CSS"],
+    slug: "mobile-web-api",
+    title: "Mobile & Web App API Development",
+    desc: "Custom REST APIs built to power mobile and web applications, enabling smooth data flow between front-end apps and backend systems.",
+    stack: ["Laravel", "REST APIs", "Node.js"],
   },
   {
-    slug: "api-integration",
-    title: "REST API Development",
-    desc: "Reliable APIs and database-backed integrations that keep business systems connected smoothly.",
-    stack: ["REST APIs", "MySQL", "Laravel"],
+    slug: "app-design",
+    title: "App Design (UI/UX)",
+    desc: "Clean, functional app interfaces designed for usability — from wireframes to polished front-end implementation for web and mobile apps.",
+    stack: ["Figma", "React Native", "Next.js", "TypeScript"],
+  },
+  {
+    slug: "database-debugging",
+    title: "Database Management & Debugging",
+    desc: "Hands-on database setup, live deployment, and troubleshooting — from connecting production databases to diagnosing and fixing backend errors, ensuring systems run reliably.",
+    stack: ["MySQL", "PostgreSQL", "Laravel", "Debugging", "Problem Solving"],
+  },
+  {
+    slug: "deployment-hosting",
+    title: "Deployment & Hosting",
+    desc: "Taking applications from local development to production — configuring live servers, connecting cloud databases, and setting up reliable, publicly accessible APIs.",
+    stack: ["Render", "Docker", "Supabase", "CI/CD"],
   },
 ];
 

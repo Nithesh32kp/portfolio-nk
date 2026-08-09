@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
@@ -15,7 +16,7 @@ export default function Header() {
                 <nav className="flex items-center justify-between rounded-xl border border-white/10 bg-slate-950/80 px-4 py-3 shadow-lg backdrop-blur-md">
                     <div className="flex items-center gap-3">
                         <Link href="#home" className="flex items-center gap-2">
-                            <div className="flex h-9 w-9 items-center justify-center rounded-md bg-linear-to-tr from-cyan-400 to-teal-400 font-bold text-slate-950">&lt;N/&gt;</div>
+                            <Image src="/logo.png" alt="Nithesh Dev Logo" width={32} height={32} className="rounded-full border border-cyan-300/20 bg-slate-950/90" />
                             <span className="font-semibold text-cyan-300">Full Stack Dev</span>
                         </Link>
                     </div>

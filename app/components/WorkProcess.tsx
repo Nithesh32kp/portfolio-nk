@@ -1,52 +1,41 @@
 import React from "react";
 
-const workExamples = [
+const steps = [
   {
-    title: "Customer App",
-    category: "E-Commerce",
-    desc: "Built a customer-facing e-commerce mobile and web app with order tracking, payment integration, and personalized recommendations.",
-    tech: ["React Native", "Next.js", "Laravel", "REST APIs"],
+    number: "01",
+    title: "Discover",
+    desc: "I start by understanding your goals, audience, and constraints so the build is shaped around real business needs.",
   },
   {
-    title: "Investor App",
-    category: "Financial Dashboard",
-    desc: "Developed a comprehensive investor dashboard with real-time portfolio analytics, performance tracking, and reporting tools.",
-    tech: ["React.js", "TypeScript", "Node.js", "MySQL"],
+    number: "02",
+    title: "Design",
+    desc: "I turn the requirements into a clear structure with clean flows, user-friendly screens, and a scalable technical plan.",
   },
   {
-    title: "Admin Portal",
-    category: "Operations",
-    desc: "Created a full-featured admin system for managing users, inventory, transactions, and generating business insights.",
-    tech: ["Laravel", "Livewire", "Tailwind CSS", "MySQL"],
+    number: "03",
+    title: "Build",
+    desc: "I develop the product in focused iterations, keeping the frontend, backend, and APIs aligned from day one.",
   },
   {
-    title: "API Integration",
-    category: "Backend",
-    desc: "Designed and deployed scalable REST APIs connecting multiple platforms and third-party services seamlessly.",
-    tech: ["Laravel", "REST APIs", "Node.js", "PostgreSQL"],
+    number: "04",
+    title: "Test & Deploy",
+    desc: "I validate performance, refine the experience, and launch everything with stability, documentation, and room to grow.",
   },
 ];
 
 export default function WorkProcess() {
   return (
     <section>
-      <h2 className="text-4xl font-anton mb-8 text-white">MY WORK PROCESS</h2>
+      <h2 className="mb-8 text-4xl font-anton text-white">My work process</h2>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {workExamples.map((work) => (
-          <div key={work.title} className="rounded-2xl border border-white/10 bg-slate-900/70 p-6 shadow-lg">
-            <div className="h-40 rounded-md mb-4 bg-linear-to-br from-slate-800 to-slate-700 flex items-center justify-center text-sm text-slate-300">
-              {work.category}
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-4">
+        {steps.map((step) => (
+          <div key={step.title} className="rounded-2xl border border-white/10 bg-slate-900/70 p-6 shadow-lg">
+            <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-full border border-cyan-400/20 bg-cyan-400/10 text-sm font-semibold text-cyan-300">
+              {step.number}
             </div>
-            <h3 className="text-xl font-semibold text-white">{work.title}</h3>
-            <p className="mt-2 text-sm text-slate-400">{work.desc}</p>
-            <div className="mt-4 flex flex-wrap gap-2">
-              {work.tech.map((t) => (
-                <span key={t} className="rounded-full border border-cyan-400/20 bg-cyan-400/10 px-2.5 py-1 text-xs font-semibold text-cyan-300">
-                  {t}
-                </span>
-              ))}
-            </div>
+            <h3 className="text-xl font-semibold text-white">{step.title}</h3>
+            <p className="mt-2 text-sm leading-6 text-slate-400">{step.desc}</p>
           </div>
         ))}
       </div>

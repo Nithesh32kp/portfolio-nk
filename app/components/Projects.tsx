@@ -2,28 +2,40 @@ import React from "react";
 
 const projects = [
   {
-    title: "Bhangaru Kalasam — E‑commerce Store",
-    desc: "Live e‑commerce storefront with a custom catalogue layout and product management. Next.js front-end using DaisyUI and a Laravel REST API backend.",
-    stack: ["Next.js", "DaisyUI", "Laravel", "REST APIs", "MySQL"," TypeScript"],
+    title: "Vendor App/Store",
+    desc: "A vendor-oriented store experience built to streamline product oversight, order handling, and day-to-day operations for business teams.",
+    stack: ["Laravel", "Livewire", "MySQL", "REST APIs"],
+    link: "https://vendors.bhangarukalasam.com/login",
+  },
+  {
+    title: "Sales Manager Store",
+    desc: "A practical sales management platform focused on lead tracking, customer activity, and performance visibility for growing teams.",
+    stack: ["Laravel", "Livewire", "MySQL", "REST APIs"],
+    link: "https://sales.bhangarukalasam.com/login",
+  },
+  {
+    title: "Store My Truck",
+    desc: "A mobile-friendly logistics and booking experience built to help users manage service requests and track operations efficiently.",
+    stack: ["React Native", "Tailwind CSS", "REST APIs"],
+    link: "https://www.storemytruck.com/",
+  },
+  {
+    title: "Shankara Hospital",
+    desc: "A healthcare-focused web experience created to support appointment flow, patient information access, and service discovery with a simple UI.",
+    stack: ["React Native", "Tailwind CSS", "Laravel"],
+    link: "https://sankaraeye.com",
+  },
+  {
+    title: "E-Commerce Store",
+    desc: "A live storefront with a custom catalog experience, product management flows, and a polished shopping journey built for a growing retail brand.",
+    stack: ["Next.js", "DaisyUI", "Laravel",'Tailwind CSS', "REST APIs", "MySQL", "TypeScript"],
     link: "https://shop.bhangarukalasam.com/login",
   },
- {
-    title: "Investor App",
-    desc: "A secure investment management platform that enables investors to track portfolios, monitor returns, access financial reports, and receive real-time investment insights.",
-    stack: ["Next.js", "TypeScript", "Laravel", "MySQL"],
-    link: "#contact",
-  },
   {
-    title: "Vendor App",
-    desc: "A comprehensive vendor management system for managing products, inventory, orders, payments, and business performance through a fast and responsive interface.",
-    stack: ["Laravel", "Livewire", "MySQL", "REST API"],
-    link: "#contact",
-  },
-  {
-    title: "Sales Manager App",
-    desc: "A sales management application designed to streamline lead tracking, customer management, sales performance monitoring, and reporting with a dynamic admin dashboard.",
-    stack: ["Laravel", "Livewire", "MySQL", "REST API"],
-    link: "#contact",
+    title: "BKJS Customer App",
+    desc: "A live web or mobile application built to deliver a smooth user experience and support real business workflows.",
+    stack: ["Laravel", "REST APIs"],
+    link: "https://play.google.com/store/apps/details?id=com.bhangarukalasam.bkjs",
   },
 ];
 
@@ -47,8 +59,13 @@ export default function Projects() {
                 </span>
               ))}
             </div>
-            <a href={project.link} className="mt-5 inline-block text-sm font-semibold text-cyan-300 underline decoration-cyan-400/50 underline-offset-4">
-              Discuss this project
+            <a
+              href={project.link}
+              target="_blank"
+              rel="noreferrer"
+              className="mt-5 inline-block text-sm font-semibold text-cyan-300 underline decoration-cyan-400/50 underline-offset-4"
+            >
+              View Live Site
             </a>
           </article>
         ))}
