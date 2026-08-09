@@ -20,19 +20,19 @@ export default function Home() {
           <Hero />
         </ScrollReveal>
 
-        <section className="mt-20">
+        <section className="mt-20 scroll-mt-24">
           <ScrollReveal delay={80}>
             <Services />
           </ScrollReveal>
         </section>
 
-        <section className="mt-20 rounded-lg border border-cyan-400/20 bg-slate-900/60 p-8">
+        <section className="mt-20 scroll-mt-24 rounded-lg border border-cyan-400/20 bg-slate-900/60 p-8">
           <ScrollReveal delay={120}>
             <RecentWorks />
           </ScrollReveal>
         </section>
 
-        <section className="mt-20">
+        <section className="mt-20 scroll-mt-24">
           <ScrollReveal delay={160}>
             <WorkProcess />
           </ScrollReveal>
@@ -44,13 +44,13 @@ export default function Home() {
           </ScrollReveal>
         </section> */}
 
-        <section className="mt-20">
+        <section className="mt-20 scroll-mt-24">
           <ScrollReveal delay={280}>
             <Projects />
           </ScrollReveal>
         </section>
 
-        <section className="mt-20">
+        <section className="mt-20 scroll-mt-24">
           <ScrollReveal delay={320}>
             <Contact />
           </ScrollReveal>

@@ -1,5 +1,4 @@
 import React from "react";
-import Link from "next/link";
 
 const services = [
   {
@@ -30,7 +29,7 @@ const services = [
 
 export default function ServicesPage() {
   return (
-    <main className="min-h-screen bg-slate-950 px-6 py-16 lg:px-12">
+    <section className="min-h-screen bg-slate-950 px-6 py-16 lg:px-12">
       <section id="services" className="mx-auto max-w-5xl">
         <h2 className="mb-8 text-4xl font-anton text-white">My services</h2>
 
@@ -38,9 +37,9 @@ export default function ServicesPage() {
           {services.map((service) => (
             <article key={service.slug} className="rounded-2xl border border-white/10 bg-slate-900/70 p-5 shadow-lg">
               <div className="mb-4 flex h-40 items-center justify-center rounded-md bg-linear-to-br from-slate-800 to-slate-700 text-sm text-slate-300">
-                <Link href={`/service/${service.slug}`} className="rounded-full bg-cyan-400 px-4 py-2 font-semibold text-slate-950">
-                  See details
-                </Link>
+                <a href="#contact" className="rounded-full bg-cyan-400 px-4 py-2 font-semibold text-slate-950">
+                  Discuss this service
+                </a>
               </div>
               <h3 className="text-xl font-semibold text-white">{service.title}</h3>
               <p className="mt-2 text-sm text-slate-400">{service.desc}</p>
@@ -55,6 +54,6 @@ export default function ServicesPage() {
           ))}
         </div>
       </section>
-    </main>
+    </section>
   );
 }
