@@ -35,8 +35,8 @@ export default function Header() {
                     </ul>
 
                     <div className="flex items-center gap-4">
-                        <a href="https://github.com" target="_blank" rel="noreferrer" className="text-slate-300 transition hover:text-cyan-300" aria-label="GitHub">GitHub</a>
-                        <a href="https://www.linkedin.com" target="_blank" rel="noreferrer" className="text-slate-300 transition hover:text-cyan-300" aria-label="LinkedIn">LinkedIn</a>
+                        <a href="https://github.com/Nithesh32kp" target="_blank" rel="noreferrer" className="text-slate-300 transition hover:text-cyan-300" aria-label="GitHub">GitHub</a>
+                        <a href="https://www.linkedin.com/in/nithesh-kumar-9126aa288/" target="_blank" rel="noreferrer" className="text-slate-300 transition hover:text-cyan-300" aria-label="LinkedIn">LinkedIn</a>
                         <a href="#contact" className="ml-2 rounded-md bg-cyan-400 px-3 py-1.5 font-semibold text-slate-950 transition hover:scale-105">Hire me</a>
                     </div>
                 </nav>
