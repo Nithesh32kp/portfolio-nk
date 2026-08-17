@@ -12,7 +12,7 @@ export default function Home() {
     <div className="min-h-screen flex flex-col bg-[#0B1220] text-slate-100">
       <Header />
 
-      <main className="mx-auto flex-1 w-full max-w-6xl px-6 py-15">
+      <main className="mx-auto flex-1 w-full max-w-7xl px-6 py-15">
         <ScrollReveal delay={0}>
           <Hero />
         </ScrollReveal>
